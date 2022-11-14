@@ -65,8 +65,6 @@ var result = myContract.methods.store(44).send(function (err, result) {
 			if (result) { console.log(result); }					
 		});			
 
-		});
-	    
 var result = myContract.methods.retrieve().call(function (err, result) {
 				
 		console.log("Result: ", result);
