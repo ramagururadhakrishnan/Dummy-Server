@@ -1,0 +1,78 @@
+
+<html>
+    <head>
+        <title>Generate Your Placeholder Text</title>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#cheese-ipsum").click(function(e) {
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "POST",
+                        url: 'https://1pcg25gdp9.execute-api.us-east-1.amazonaws.com/production/3-wx03',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            'ipsum': "12345678910111213141516.txt"
+                        }),
+                        success: function(res){
+                            $("#output").empty().append(res);
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+
+                })
+                $("#office-ipsum").click(function(e) {
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "POST",
+                        url: 'https://1pcg25gdp9.execute-api.us-east-1.amazonaws.com/production/3-wx03',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            'ipsum': "office.txt"
+                        }),
+                        success: function(res){
+                            $("#output").empty().append(res);
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+
+                })
+                $("#corporate-ipsum").click(function(e) {
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "POST",
+                        url: 'https://1pcg25gdp9.execute-api.us-east-1.amazonaws.com/production/3-wx03',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            'ipsum': "corporate.txt"
+                        }),
+                        success: function(res){
+                            $("#output").empty().append(res);
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Generate Your Placeholder Text</h1>
+        <!-- Note To Self: The flag is in 12345678910111213141516.txt -->
+        <form>
+            <input type="submit" id="cheese-ipsum" value="Cheese Ipsum" type="button" />
+            <input type="submit" id="office-ipsum" value="Office Ipsum" type="button" />
+            <input type="submit" id="corporate-ipsum" value="Corporate Ipsum" type="button" />
+        </form>
+        <div id="output"></div>
+    </body>
+</html>
